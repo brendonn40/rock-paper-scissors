@@ -1,7 +1,8 @@
-console.log("hello world!")
 const choices = ["Rock","Paper","Scissors"]
 
 game()
+
+// functions
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
