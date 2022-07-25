@@ -18,3 +18,14 @@ body{
 .title{
     margin-bottom: 70px;
 }
+.results{
+    width: 1200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+}
+#player,#pc{
+    font-size: 36px;
+}

@@ -4,14 +4,37 @@ let losses = 0
 let draw = 0
 const inputs = document.querySelectorAll("input")
 
+const player_results= document.getElementById("player")
+const pc_results= document.getElementById("pc")
+
+
+
+
 inputs.forEach((input) => {
     input.addEventListener("click",() => {
       alert(playRound(input.id,getComputerChoice()))
-      console.log(`wins:${wins} losses:${losses}`)
+      player_results.innerText =`Player: ${wins}` 
+      pc_results.innerText = `Computer: ${losses}`
+      getWinner()
+      player_results.innerText =`Player: ${wins}` 
+      pc_results.innerText = `Computer: ${losses}`
     })
 });
 
+
 // functions
+function getWinner(){
+    if(wins === 5 | losses === 5){
+        if(wins === 5){
+            alert(`O vencedor foi o Player!`)   
+        }
+        else{
+            alert(`O vencedor foi o Computador!`)
+        }
+        wins = 0
+        losses = 0
+      } 
+}
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
@@ -43,15 +66,3 @@ function playRound(playerChoice,computerChoice){
     }
 }
 
-
-function compareResults(wins,losses,draws){
-    if (wins > losses){
-        return `You'are the winner. You won ${wins} times out of 5.`
-    }
-    else if (losses > wins){
-        return `You lost :( . You lost ${losses} times out of 5.`
-    }else{
-        return `It's a draw!!`
-    }
-
-}
